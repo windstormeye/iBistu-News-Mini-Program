@@ -1,10 +1,16 @@
-<view>
+<scroll-view class='titleHeadView' scroll-x='true'>
+  <view class='singleHeadView' wx:for='{{ titleData_cn }}' catchtap='titleHeadViewTapClick' id='{{ index }}'>
+    <text class='titleHeadText'>{{ item }}</text>
+    <view class='titleHeadBottomLineView' hidden='{{ index==titleIndex?false:true }}'></view>
+  </view>
+</scroll-view>
+
+<view class='contentView'>
   <view wx:for='{{ resData }}'>
     <view class='cell'>
       <text class='cellTitle'>{{ item.newsTitle }}</text>
-      <image class='cellImage' src='{{ item.newsImage }}' mode='aspectFill'/>
-      <text class='cellContent'>{{ item.newsIntro }}</text>
+      <image class='cellImage' src='{{ item.newsImage }}' mode='aspectFill' wx:if='{{ item.newsImage.length > 0 }}' />
+      <text class='cellContent' wx:if='{{ item.newsImage.length > 0 }}'>{{ item.newsIntro }}</text>
     </view>
   </view>
-
 </view>
