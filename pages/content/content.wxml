@@ -1,0 +1,10 @@
+<view>
+
+<view wx:for='{{ resData_cn }}'>
+  <view class='contentView'>
+    <text class='contentViewText' >{{ item }}</text>
+     <image class='contentViewImage' mode='widthFix' src='{{ resData_image[index] }}' hidden='{{ resData_display[index] }}' /> 
+  </view>
+</view>
+
+</view>

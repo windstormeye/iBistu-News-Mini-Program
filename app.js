@@ -34,6 +34,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    session_token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzYTE4OWM0NDZhOWNlMzQ0M2NjMDQ1YmQyZTM4ZDA4YyIsImlzcyI6Imh0dHBzOi8vYXBpLmlmbGFiLm9yZy9hcGkvdjIvdXNlci9zZXNzaW9uIiwiaWF0IjoxNTE1NjQ0ODkxLCJleHAiOjE1MTU3MzEyOTEsIm5iZiI6MTUxNTY0NDg5MSwianRpIjoiNTBUcngzYUZ6NXV4eERvWiIsInVzZXJfaWQiOjQyLCJmb3JldmVyIjpmYWxzZX0.4eVTRmhyt2X35BlVTy7XwZ80w0gyw9B3VfHhWMW3_xY',
+    api_key: '3528bd808dde403b83b456e986ce1632d513f7a06c19f5a582058be87be0d8c2'
   }
 })

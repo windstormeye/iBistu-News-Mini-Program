@@ -1,0 +1,12 @@
+.contentView {
+  padding: 10px;
+}
+
+.contentViewImage {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.contentViewText {
+  
+}
