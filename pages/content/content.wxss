@@ -5,8 +5,10 @@
 .contentViewImage {
   width: 100%;
   margin-top: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(100, 100, 100, 0.5);
 }
 
 .contentViewText {
-  
+  font-size: 15px;
 }

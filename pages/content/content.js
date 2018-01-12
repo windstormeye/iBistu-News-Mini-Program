@@ -40,34 +40,28 @@ Page({
             resdata_display[resdata_cn_index] = true
           } else {
             tempIndex++
+            // 这么搞新闻图片加载不全
             if (tempIndex == 3) {
               resdata_display[resdata_cn_index] = false
             }
-            // if (tempIndex > 3) {
-            //   console.log(tempIndex)
-            //   if ((tempIndex - 3) % 2 == 0) {
-            //     console.log('@@@' + tempIndex)
-            //     resdata_cn_index++
-            //     resdata_display[resdata_cn_index] = true
-            //     resdata_cn[resdata_cn_index] = ''
-            //   } else {
-            //     console.log('###' + tempIndex)
-            //     resdata_cn_index++
-            //     resdata_display[resdata_cn_index] = false
-            //     resdata_cn[resdata_cn_index] = ''
-            //   }
-            // }
           }
         }
 
         var count = resdata_cn.length + res.data.imgList.length
 
-        that.setData({
-          resData_image: res.data.imgList,
-          resData_cn: resdata_cn,
-          resDataCount: count,
-          resData_display: resdata_display,
+        var displayArr = []
+        var displayIndex = 0
+        for (var j = 0; j < resdata_display.length; j++) {
+          if (resdata_display[j]) {
+            displayArr[j] = ""
+          } else {
+            displayArr[j] = res.data.imgList[displayIndex]
+            displayIndex ++
+          }
+        }
 
+        that.setData({
+          resData_image: displayArr,
           resData_cn: resdata_cn,
           resDataCount: count,
           resData_display: resdata_display,
