@@ -1,3 +1,30 @@
+var p = 0
+
+var GetList = function (that) {
+  wx.request({
+    url: 'https://api.iflab.org/api/v2/newsapi/newslist',
+    method: 'GET',
+    data: {
+      category: 'zhxw',
+      page: p,
+      api_key: getApp().globalData.api_key,
+      session_token: getApp().globalData.session_token
+    },
+    success: function (res) {
+      wx.hideLoading()
+      var l = that.data.resData
+      for (var i = 0; i < res.data.length; i++) {
+        l.push(res.data[i])
+      }
+      that.setData({
+        resData: l
+      }); 
+      p++;  
+    }, fail: function (res) {
+    }, complete: function () {
+    }
+  })
+}
 
 Page({
   data: {
@@ -10,31 +37,9 @@ Page({
 
   onLoad: function () {
     var that = this
-
+    GetList(that) 
     wx.showLoading({
       title: '加载中',
-    })
-
-    wx.request({
-      url: 'https://api.iflab.org/api/v2/newsapi/newslist',
-      method: 'GET',
-      data: {
-        category: 'zhxw',
-        page: 0,
-        api_key: getApp().globalData.api_key,
-        session_token: getApp().globalData.session_token
-      },
-      success: function (res) {
-        wx.hideLoading()
-        that.setData({
-          resData: res.data
-        })
-        console.log(res.data)
-      }, fail: function (res) {
-
-      }, complete: function () {
-
-      }
     })
   },
 
@@ -76,6 +81,10 @@ Page({
     wx.navigateTo({
       url: '../content/content?link=' + link,
     })
-  }
-
+  },
+  onReachBottom: function () {
+    //上拉  
+    var that = this
+    GetList(that)
+  }  
 })
